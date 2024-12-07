@@ -2,9 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // Config options here
-  experimental: {
-    ppr: "incremental",
-  },
+  // experimental: {
+  //   ppr: "incremental",
+  // },
 };
 
 const withVercelToolbar = require("@vercel/toolbar/plugins/next")();

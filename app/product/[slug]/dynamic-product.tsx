@@ -14,7 +14,7 @@ import AddToCartButton from "@/components/add-to-cart";
 import BuyNowButton from "@/components/buy-now";
 import { FlagValues } from "@vercel/flags/react";
 import { notFound } from "next/navigation";
-import { get } from "@vercel/edge-config";
+
 
 export const DynamicProduct = async (props: {
   params: Promise<{ slug: string }>;
@@ -135,8 +135,7 @@ export const DynamicProduct = async (props: {
 };
 
 const Stock = async ({ slug }: { slug: string }) => {
-  const stock = await get("stock");
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  const stock = false;
 
   if (!stock || !(stock as Record<string, any>)[slug]) return;
 
