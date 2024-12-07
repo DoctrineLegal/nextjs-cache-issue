@@ -1,0 +1,27 @@
+version: 2.1
+
+jobs:
+  # Job one with a unique name
+  with_fix:
+    docker:
+     - image: cimg/node
+    steps:
+      - checkout
+      - run: pnpm install
+      - run: pnpm build
+  # Job two with a unique name
+  without_fix:
+    docker:
+     - image: cimg/base:2022.05
+    steps:
+      - checkout
+      - run: pnpm install
+      - run: pnpm build
+
+workflows:
+  # Name of workflow
+  hello_and_goodbye:
+    # List of jobs that will run
+    jobs:
+      - with_fix
+      - without_fix
