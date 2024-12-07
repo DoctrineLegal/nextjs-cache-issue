@@ -8,6 +8,11 @@ jobs:
     steps:
       - checkout
       - run: pnpm install
+      - run: cp cache-dir-fixed.js node_modules/next/dist/server/cache-dir.js
+      - run: pnpm build
+      - run: pnpm build
+      - run: pnpm build
+      - run: pnpm build
       - run: pnpm build
   # Job two with a unique name
   without_fix:
@@ -16,6 +21,10 @@ jobs:
     steps:
       - checkout
       - run: pnpm install
+      - run: pnpm build
+      - run: pnpm build
+      - run: pnpm build
+      - run: pnpm build
       - run: pnpm build
 
 workflows:
