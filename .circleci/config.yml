@@ -5,6 +5,7 @@ jobs:
   with_fix:
     docker:
      - image: cimg/node:23.3
+    resource_class: xlarge
     steps:
       - checkout
       - run: pnpm install
@@ -18,6 +19,7 @@ jobs:
   without_fix:
     docker:
      - image: cimg/node:23.3
+    resource_class: xlarge
     steps:
       - checkout
       - run: pnpm install
